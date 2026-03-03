@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  backup_sync.sh — Incremental Backup & Sync Tool
+#  syncwright.sh — Incremental Backup & Sync Tool
 #  Compatible with: macOS & Linux
 #  Author: Akshay Shirsath
-#  Usage:  ./backup_sync.sh [OPTIONS] <source> <destination>
+#  Usage:  ./syncwright.sh [OPTIONS] <source> <destination>
 # =============================================================================
 
 set -euo pipefail
