@@ -30,7 +30,7 @@ START_TIME=$(date +%s)
 # ─── Usage ────────────────────────────────────────────────────────────────────
 usage() {
   cat <<EOF
-${BOLD}backup_sync.sh v${VERSION}${RESET} — Incremental Backup & Sync Tool
+${BOLD}syncwright.sh v${VERSION}${RESET} — Incremental Backup & Sync Tool
 
 ${BOLD}USAGE:${RESET}
   ${SCRIPT_NAME} [OPTIONS] <source_dir> <destination_dir>
@@ -255,7 +255,7 @@ build_rsync_cmd() {
 # ─── Run Sync ─────────────────────────────────────────────────────────────────
 run_sync() {
   local rsync_log
-  rsync_log="$(mktemp /tmp/backup_sync_rsync.XXXXXX)"
+  rsync_log="$(mktemp /tmp/syncwright_rsync.XXXXXX)"
   trap "rm -f '$rsync_log'" EXIT
 
   if $VERBOSE; then
@@ -351,10 +351,10 @@ main() {
   # Initialize log file
   if [[ -n "$LOG_FILE" ]]; then
     mkdir -p "$(dirname "$LOG_FILE")"
-    echo "=== backup_sync.sh run: $(date) ===" > "$LOG_FILE"
+    echo "=== syncwright.sh run: $(date) ===" > "$LOG_FILE"
   fi
 
-  section "backup_sync.sh v${VERSION}"
+  section "syncwright.sh v${VERSION}"
 
   check_dependencies
   detect_platform
